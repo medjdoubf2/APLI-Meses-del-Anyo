@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Array de Objetos</title>
+    <style>
+        body {
+            background-image: url(1000_F_1499114033_dRyryqQUmLH7fis9lONQZY0YoIRil8gA.jpg);
+            width: 60%;
+            font-family: 'Arial', sans-serif;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+          
+            color: #104aa0;
+        }
+
+        h1 {
+             background: linear-gradient(red, yellow, blue);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5em;
+            color: solid #e561ff;
+        }
+
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1em;
+            border: 2px solid #ff6f61;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(37, 255, 237, 0.801);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4a3a;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        #informacion {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ff6f61;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+   
+<body>
+    <h1>Datos sobre los meses del año.</h1>
+    <h2>Especifica el mes sobre el que deseas obtener información.</h2>
+    <label for="meses"><h3><b>Selecciona un mes:</b></h3></label>
+    <aside>
+        <select id="meses" size="12">
+            <option value="Enero">Enero</option>
+            <option value="Febrero">Febrero</option>
+            <option value="Marzo">Marzo</option>
+            <option value="Abril">Abril</option>
+            <option value="Mayo">Mayo</option>
+            <option value="Junio">Junio</option>
+            <option value="Julio">Julio</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Septiembre">Septiembre</option>
+            <option value="Octubre">Octubre</option>
+            <option value="Noviembre">Noviembre</option>
+            <option value="Diciembre">Diciembre</option>
+        </select>
+        <p><button type="button" onclick="mostrarMeses()">Mostrar información del mes</button></p>
+        <p id="informacion"></p>
+    </aside>
+
+    <script>
+        const arrayMeses = [
+            {
+                nombreMes: "Enero",
+                numeroDias: 31,
+                estacionDeTrimistre: 1,
+                enCatalan: "gener",
+                enIngles: "January",
+                enFrances: "Janvier",
+                enCastellano: "Enero"
+            },
+            {
+                nombreMes: "Febrero",
+                numeroDias: 28,
+                estacionDeTrimistre: 1,
+                enCatalan: "febrer",
+                enIngles: "February",
+                enFrances: "Février",
+                enCastellano: "Febrero"
+            },
+            {
+                nombreMes: "Marzo",
+                numeroDias: 31,
+                estacionDeTrimistre: 1,
+                enCatalan: "març",
+                enIngles: "March",
+                enFrances: "Mars",
+                enCastellano: "Marzo"
+            },
+            {
+                nombreMes: "Abril",
+                numeroDias: 30,
+                estacionDeTrimistre: 2,
+                enCatalan: "abril",
+                enIngles: "April",
+                enFrances: "Avril",
+                enCastellano: "Abril"
+            },
+            {
+                nombreMes: "Mayo",
+                numeroDias: 31,
+                estacionDeTrimistre: 2,
+                enCatalan: "maig",
+                enIngles: "May",
+                enFrances: "Mai",
+                enCastellano: "Mayo"
+            },
+            {
+                nombreMes: "Junio",
+                numeroDias: 30,
+                estacionDeTrimistre: 2,
+                enCatalan: "juny",
+                enIngles: "June",
+                enFrances: "juin",
+                enCastellano: "Junio"
+            },
+            {
+                nombreMes: "Julio",
+                numeroDias: 31,
+                estacionDeTrimistre: 3,
+                enCatalan: "juliol",
+                enIngles: "July",
+                enFrances: "Juillet",
+                enCastellano: "Julio"
+            },
+            {
+                nombreMes: "Agosto",
+                numeroDias: 31,
+                estacionDeTrimistre: 3,
+                enCatalan: "agost",
+                enIngles: "August",
+                enFrances: "Août",
+                enCastellano: "Agosto"
+            },
+            {
+                nombreMes: "Septiembre",
+                numeroDias: 30,
+                estacionDeTrimistre: 3,
+                enCatalan: "setembre",
+                enIngles: "September",
+                enFrances: "Septembre",
+                enCastellano: "Septiembre"
+            },
+            {
+                nombreMes: "Octubre",
+                numeroDias: 31,
+                estacionDeTrimistre: 4,
+                enCatalan: "octubre",
+                enIngles: "October",
+                enFrances: "Octobre",
+                enCastellano: "Octubre"
+            },
+            {
+                nombreMes: "Noviembre",
+                numeroDias: 30,
+                estacionDeTrimistre: 4,
+                enCatalan: "novembre",
+                enIngles: "November",
+                enFrances: "Novembre",
+                enCastellano: "Noviembre"
+            },
+            {
+                nombreMes: "Diciembre",
+                numeroDias: 31,
+                estacionDeTrimistre: 4,
+                enCatalan: "desembre",
+                enIngles: "December",
+                enFrances: "Décembre",
+                enCastellano: "Diciembre"
+            },
+        ];
+
+        function mostrarMeses() {
+            const indice = document.getElementById("meses").selectedIndex;
+            const infoMes = arrayMeses[indice];
+
+            const infoTexto =
+                "<strong>Mes:</strong> " + infoMes.nombreMes + "<br>" +
+                "<strong>Días:</strong> " + infoMes.numeroDias + "<br>" +
+                "<strong>Trimestre:</strong> " + infoMes.estacionDeTrimistre + "<br>" +
+                "<strong>En catalán:</strong> " + infoMes.enCatalan + "<br>" +
+                "<strong>En inglés:</strong> " + infoMes.enIngles + "<br>" +
+                "<strong>En francés:</strong> " + infoMes.enFrances + "<br>" +
+                "<strong>En castellano:</strong> " + infoMes.enCastellano;
+
+            document.getElementById("informacion").innerHTML = infoTexto;
+        }
+    </script>
+</body>
+
+</html>
